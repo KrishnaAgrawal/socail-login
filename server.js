@@ -4,7 +4,7 @@ const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // --- Simple in-memory "database" for demo (do NOT use in prod) ---
@@ -111,14 +111,14 @@ app.get('/auth/google',
 );
 
 app.get('/auth/google/callback', (req, res, next) => {
-        const { error } = req.query;
-         // User clicked "Cancel" on Google login
-        if (error === "access_denied") {
-            return res.redirect('/?error=google_cancelled');
-        }
+    const { error } = req.query;
+    // User clicked "Cancel" on Google login
+    if (error === "access_denied") {
+        return res.redirect('/?error=google_cancelled');
+    }
 
-        next(); // continue to passport if no cancel error
-    },
+    next(); // continue to passport if no cancel error
+},
     passport.authenticate('google', {
         failureRedirect: '/?error=google_failed',
         session: true
@@ -130,17 +130,17 @@ app.get('/auth/google/callback', (req, res, next) => {
 
 // Protected profile route
 app.get('/profile', (req, res) => {
-  if (!req.isAuthenticated || !req.isAuthenticated()) {
-    return res.redirect('/');
-  }
+    if (!req.isAuthenticated || !req.isAuthenticated()) {
+        return res.redirect('/');
+    }
 
-  const u = req.user;
-  const photo =
-    u.photos?.[0]?.value ||
-    u.raw?.picture?.data?.url ||
-    "https://via.placeholder.com/150";
+    const u = req.user;
+    const photo =
+        u.photos?.[0]?.value ||
+        u.raw?.picture?.data?.url ||
+        "https://via.placeholder.com/150";
 
-  res.send(`
+    res.send(`
   <!DOCTYPE html>
   <html lang="en">
   <head>
