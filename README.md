@@ -16,7 +16,6 @@ Users can log in with their Google account, view a profile page, and securely lo
 ```
 project/
 ├── server.js
-├── passport.js
 ├── package.json
 ├── .env
 ```
