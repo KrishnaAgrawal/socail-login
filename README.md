@@ -62,7 +62,7 @@ PORT=5000
 
 ## Running the Application
 ```
-npm start
+node server.js
 ```
 Visit the app:
 ```
