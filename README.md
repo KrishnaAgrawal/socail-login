@@ -10,6 +10,11 @@ This project demonstrates a clean, industry-standard implementation of Google OA
 
 Users can log in with their Google account, view a profile page, and securely log out.
 
+## 🌍 Live Demo
+Try the app instantly — no setup required:
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_App-blue?style=for-the-badge)](https://socail-login.krishnaagrawal.deno.net/)
+
 ---
 
 ## Project Structure
